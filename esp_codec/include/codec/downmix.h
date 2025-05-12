@@ -89,6 +89,18 @@ esp_err_t downmix_set_output_type(audio_element_handle_t self, esp_downmix_outpu
 esp_err_t downmix_set_work_mode(audio_element_handle_t self, esp_downmix_work_mode_t mode);
 
 /**
+ * @brief  Get status of down-mixer.
+ *
+ * @param[in]   self  Audio element handle
+ * @param[out]  mode  Down-mixer work mode.
+ *
+ * @return
+ *       - ESP_OK               on success
+ *       - ESP_ERR_INVALID_ARG  invalid arguments
+ */
+esp_err_t downmix_get_work_mode(audio_element_handle_t self, esp_downmix_work_mode_t *mode);
+
+/**
  * @brief  Passes content of per channel output stream by down-mixer.
  *
  * @param  self     Audio element handle

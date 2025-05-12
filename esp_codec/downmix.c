@@ -322,6 +322,17 @@ esp_err_t downmix_set_work_mode(audio_element_handle_t self, esp_downmix_work_mo
     return ESP_OK;
 }
 
+esp_err_t downmix_get_work_mode(audio_element_handle_t self, esp_downmix_work_mode_t *mode)
+{
+    downmix_t *downmix = (downmix_t *)audio_element_getdata(self);
+    if (downmix == NULL) {
+        ESP_LOGE(TAG, "the down-mix handle is NULL, line %d", __LINE__);
+        return ESP_ERR_INVALID_ARG;
+    }
+    *mode = downmix->downmix_info.mode;
+    return ESP_OK;
+}
+
 esp_err_t downmix_set_output_type(audio_element_handle_t self, esp_downmix_output_type_t output_type)
 {
     downmix_t *downmix = (downmix_t *)audio_element_getdata(self);
